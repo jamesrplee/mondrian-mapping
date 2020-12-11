@@ -98,16 +98,16 @@ export default function MondrianCanvas({colors, props, svg, setSvg, setSerialize
       for (var i = 0; i < colors.length; i++) {
         squares[Math.floor(Math.random() * squares.length)].color = colors[i];
       }
-      for (var i = 0; i < squares.length; i++) {
+      for (var index = 0; index < squares.length; index++) {
         context.beginPath();
         context.rect(
-          squares[i].x,
-          squares[i].y,
-          squares[i].width,
-          squares[i].height
+          squares[index].x,
+          squares[index].y,
+          squares[index].width,
+          squares[index].height
         );
-        if(squares[i].color) {
-          context.fillStyle = squares[i].color;
+        if(squares[index].color) {
+          context.fillStyle = squares[index].color;
         } else {
           context.fillStyle = white
         }
@@ -126,6 +126,7 @@ export default function MondrianCanvas({colors, props, svg, setSvg, setSerialize
 
     setSvg(mySvg)
     setSerializedSvg(str)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [colors]) // useEffect
 
   return (
